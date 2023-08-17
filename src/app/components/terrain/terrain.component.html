@@ -1,0 +1,28 @@
+<ng-container *ngIf="textures() as textures">
+	<ngt-plane-geometry *args="[1, 2, 24, 24]" [ref]="geometryRef" />
+	<ngt-mesh-standard-material
+		#material
+		[map]="textures.grid"
+		[displacementMap]="textures.displacement"
+		[metalnessMap]="textures.metalness"
+		[displacementScale]="0.4"
+		[metalness]="0.96"
+		[roughness]="0.5"
+	/>
+
+	<ngt-mesh
+		#frontPlane
+		[rotation]="[-Math.PI / 2, 0, 0]"
+		[position]="[0, 0, 0.15]"
+		[geometry]="geometryRef.nativeElement"
+		[material]="material"
+	/>
+
+	<ngt-mesh
+		#backPlane
+		[rotation]="[-Math.PI / 2, 0, 0]"
+		[position]="[0, 0, -1.85]"
+		[geometry]="geometryRef.nativeElement"
+		[material]="material"
+	/>
+</ng-container>

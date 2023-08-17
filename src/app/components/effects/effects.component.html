@@ -1,0 +1,13 @@
+<ngt-effect-composer *args="[gl()]" [ref]="composerRef">
+	<ngt-render-pass *args="[scene(), camera()]" [attach]="passAttach" />
+	<ngt-shader-pass
+		*args="[RGBShiftShader]"
+		[attach]="passAttach"
+		(afterAttach)="$event.node.uniforms['amount'].value = 0.0015"
+	/>
+	<ngt-shader-pass *args="[GammaCorrectionShader]" [attach]="passAttach" />
+	<ngt-unreal-bloom-pass
+		*args="[size().width / size().height, 0.2, 0.8, 0]"
+		[attach]="passAttach"
+	/>
+</ngt-effect-composer>

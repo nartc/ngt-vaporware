@@ -1,0 +1,25 @@
+<ngt-ambient-light [intensity]="Math.PI" />
+
+<ngt-spot-light
+	color="#d53c3d"
+	[position]="[0.5, 0.75, 2.2]"
+	[intensity]="20"
+	[distance]="25"
+	[angle]="Math.PI * 0.1"
+	[penumbra]="0.25"
+	[decay]="10"
+>
+	<ngt-vector3 *args="[-0.25, 0.25, 0.25]" attach="target.position" />
+</ngt-spot-light>
+
+<ngt-spot-light
+	color="#d53c3d"
+	[position]="[-0.5, 0.75, 2.2]"
+	[intensity]="20"
+	[distance]="25"
+	[angle]="Math.PI * 0.1"
+	[penumbra]="0.25"
+	[decay]="10"
+>
+	<ngt-vector3 *args="[0.25, 0.25, 0.25]" attach="target.position" />
+</ngt-spot-light>

@@ -1,0 +1,12 @@
+<ngt-fog attach="fog" *args="['#000', 1, 2.5]" />
+
+<app-lights />
+<app-terrain />
+<app-effects />
+
+<ngts-orbit-controls
+	[maxPolarAngle]="Math.PI / 2.1"
+	[minPolarAngle]="Math.PI / 2.5"
+	[minAzimuthAngle]="-Math.PI / 2"
+	[maxAzimuthAngle]="Math.PI / 2"
+/>
