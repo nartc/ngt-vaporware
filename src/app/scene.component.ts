@@ -139,7 +139,12 @@ declare global {
 			/>
 		</ngt-effect-composer>
 
-		<ngts-orbit-controls [maxPolarAngle]="Math.PI / 2.1" />
+		<ngts-orbit-controls
+			[maxPolarAngle]="Math.PI / 2.1"
+			[minPolarAngle]="Math.PI / 2.5"
+			[minAzimuthAngle]="-Math.PI / 2"
+			[maxAzimuthAngle]="Math.PI / 2"
+		/>
 	`,
 	imports: [NgtArgs, NgtsOrbitControls, NgIf],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -160,7 +165,7 @@ export class VaporwareScene {
 	composerRef = injectNgtRef<EffectComposer>();
 	geometryRef = injectNgtRef<PlaneGeometry>();
 
-	// Angular Three supports using ViewChild to get the instaces of the THREE objects via ElementRef
+	// Angular Three supports using view/content queries to get the instances of the THREE objects via ElementRef
 	@ViewChild('frontPlane') frontPlane?: ElementRef<Mesh>;
 	@ViewChild('backPlane') backPlane?: ElementRef<Mesh>;
 
